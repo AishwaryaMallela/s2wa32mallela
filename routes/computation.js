@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
     if (req.query.c!=undefined) {
         c=req.query.c;
     }
-    res.render('computation', { Cuberoot: 'Cuberoot applied to ' +c+ ' is '+Math.cbrt(c) });
-  });
+    res.send('Cuberoot applied to ' +c+ ' is '+Math.cbrt(c));
+});
 
 module.exports = router;

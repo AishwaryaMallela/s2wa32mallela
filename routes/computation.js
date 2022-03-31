@@ -1,15 +1,25 @@
 var express = require('express');
-const{param} = require('./users');
 var router = express.Router();
-var c = Math.random().toFixed(2);
 
-console.log(c);
 /* GET Computation page. */
 router.get('/', function(req, res, next) {
-    if (req.query.c!=undefined) {
-        c=req.query.c;
+    var p;
+    var rdm=Math.random();
+    console.log(req.query.p);
+    k=req.query.p;
+    if(p==undefined){
+        p=rdm;
     }
-    res.send('Cuberoot applied to ' +c+ ' is '+Math.cbrt(c));
+    let atan2=Math.atan2(p,p);
+    let atanh=Math.atanh(p);
+    let cbrt=Math.cbrt(p);
+
+    res.render('computation',{
+        title:'Computation',
+        a1:`applied to `+p+` is `+atan2,
+        a2:`applied to `+p+` is `+atanh,
+        a3:`applied to `+p+` is `+cbrt,
+    });
 });
 
 module.exports = router;
